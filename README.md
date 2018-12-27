@@ -14,17 +14,36 @@ Most objects has either data or methods associated with them, they are called **
 
 ### Modules
 Sample module interaction:
-`import math`
-`from math import pi`
-`math.sqrt(math.pi / 2)`
+```python
+import math
+from math import pi
+math.sqrt(math.pi / 2)
+```
 
 #### What is a Namespace?
-`import math`
-`import numpy as np`
-`math.sqrt(2)`
-`np.sqrt([2,3,4])`
+```python
+import math
+import numpy as np
+math.sqrt(2)
+np.sqrt([2,3,4])
+```
 **math** and **np** are different Namespaces.
 
-`name = "Amy"
+```python
+name = "Amy"
 type(name)
-dir(name) // to get all available methods`
+dir(name) // to get all available methods
+dir(str) // can use a type
+help(name.upper)
+```
+
+### Numbers and basic calculations
+Three numerical types are available in Python - int, float, complex. `Int` have unlimited precision.
+
+### Random choice
+```Python
+import random
+random.choice(['aa','bb','cc'])
+```
+
+### Expressions and Booleans
