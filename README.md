@@ -32,8 +32,8 @@ np.sqrt([2,3,4])
 ```python
 name = "Amy"
 type(name)
-dir(name) // to get all available methods
-dir(str) // can use a type
+dir(name) # to get all available methods
+dir(str) # can use a type
 help(name.upper)
 ```
 
@@ -47,3 +47,15 @@ random.choice(['aa','bb','cc'])
 ```
 
 ### Expressions and Booleans
+`OR`, `AND` and `NOT` are the only bool operatinos.
+There are total of 8 comparison operations.
+```Python
+2 < 4 # True
+2 <= 2 # True
+2 == 2 # True
+3 != 3 # False
+[2,3] == [3,2] # False
+[2,3] is [2,3] # False
+[2,3] is not [2,3] # True
+2.0 == 2 # True. 2nd operand will be converted to float => 2.0
+```
