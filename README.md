@@ -139,3 +139,30 @@ age["Tim"] += 1
 names = age.keys
 type(names) # returns "dict_keys"
 ```
+
+## Dynamic typing
+Type checking is performed during runtime.
+```Python
+x = 3
+# 1) Python creates an object '3'
+# 2) Variable named 'x' created
+# 3) Reference from 'x' to '3' created
+```
+How dynamic typing works with immutable objects:
+```Python
+x = 3     # immutable object '3' created, 'x' created and linked to '3'
+y = x     # 'y' created and linked to '3', as variable name cannot reference other name  
+y = y - 1 # '2' (as 3-1 = 2) created and 'y' is linked to '2'
+print(x)  # '3' is printed
+print(y)  # '2' is printed
+```
+
+How dynamic typing works with mutable objects:
+```Python
+L1    = [2, 3, 4]
+L2    = L1
+L1[0] = 24
+print(L1)           # [24, 3, 4]
+print(L2)           # [24, 3, 4]
+L2 is L1            # True
+```
