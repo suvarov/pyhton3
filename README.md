@@ -1,5 +1,5 @@
 # Python3
-## Objects and Methods
+## 1.1.3: Modules and Methods
 ### Objects
 Objects whose values can be changed during the course of program execution are called **mutable**.
 Objects whose value is unchangeable after they've been created are **immutable**.
@@ -20,7 +20,7 @@ from math import pi
 math.sqrt(math.pi / 2)
 ```
 
-#### What is a Namespace?
+### What is a Namespace?
 ```python
 import math
 import numpy as np
@@ -37,16 +37,16 @@ dir(str) # can use a type
 help(name.upper)
 ```
 
-### Numbers and basic calculations
+## 1.1.4: Numbers and Basic Calculations
 Three numerical types are available in Python - int, float, complex. `Int` have unlimited precision.
 
-### Random choice
+## 1.1.5: Random Choice
 ```Python
 import random
 random.choice(['aa','bb','cc'])
 ```
 
-### Expressions and Booleans
+## 1.1.6: Expressions and Booleans
 `OR`, `AND` and `NOT` are the only bool operatinos.
 There are total of 8 comparison operations.
 ```Python
@@ -60,8 +60,8 @@ There are total of 8 comparison operations.
 2.0 == 2 # True. 2nd operand will be converted to float => 2.0
 ```
 
-## Sequence Objects
-### Sequences
+# Part 2: Sequence Objects
+## 1.2.1: Sequences
 There are three basic Sequences: `list`, `tuple`, `range`.
 ```Python
 s = (1,2,3,4,5,6,7,8)
@@ -75,10 +75,10 @@ x = s[0:2] # x is (1,2)
 y = s[:5] # y is (1,2,3,4,5)
 z = s[5:] # z is (4,5,6,7,8)
 ```
-#### Lists
+## 1.2.2: Lists
 Lists are mutable Sequences.
 
-#### Tuples
+## 1.2.3: Tuples
 Tuples are **immutable** Sequences.
 ```Python
 x = 11.23
@@ -91,7 +91,7 @@ for (x,y) in coordinates:
   print(x,y)
 ```
 
-#### Ranges
+## 1.2.4: Ranges
 Ranges are immutable Sequences often used in `for` loops.
 ```Python
 range(5) # creates range(0,5)
@@ -101,12 +101,12 @@ list(range(1,13,2)) # returns a list [1, 3, 5, 7, 9, 11]
 ```
 Using ranges saves a lot of memory.
 
-#### Strings
+## 1.2.5: Strings
 ```python
 s = "abc"
 3*s # creates s + s +s string --> "abcabcabc"
 ```
-#### Sets
+## 1.2.6: Sets
 Sets are unordered collections of distinct hashable objects.
 There is a `set`, and then there is a `frozen set` (yes, it is **immutable**).
 Sets are especially useful for keeping track of distinct objects.
@@ -127,7 +127,7 @@ letters = set(word)
 len(letters) # gives us a number of unique letters in a string
 ```
 
-#### Dictionaries
+## 1.2.7: Dictionaries
 Key - Value pairs, where `key` is **immutable**, and `value`  is anything.
 Dictionaries can be used to perform very fast lookups on unordered data.
 ```Python
@@ -140,7 +140,8 @@ names = age.keys
 type(names) # returns "dict_keys"
 ```
 
-## Dynamic typing
+# Part 3: Manipulating Objects
+## 1.3.1: Dynamic Typing
 Type checking is performed during runtime.
 ```Python
 x = 3
@@ -166,3 +167,12 @@ print(L1)           # [24, 3, 4]
 print(L2)           # [24, 3, 4]
 L2 is L1            # True
 ```
+## 1.3.2: Copies
+## 1.3.3: Statements
+## 1.3.4: For and While Loops
+## 1.3.5: List Comprehensions
+## 1.3.6: Reading and Writing Files
+## 1.3.7: Introduction to Functions
+## 1.3.8: Writing Simple Functions
+## 1.3.9: Common Mistakes and Errors
+# Homework \#1
