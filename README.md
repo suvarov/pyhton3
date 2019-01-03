@@ -1,4 +1,4 @@
-# HarvardX PH526x: Using Python for Research[https://www.edx.org/course/using-python-for-research]
+[# HarvardX PH526x: Using Python for Research](https://www.edx.org/course/using-python-for-research)
 ## Week 1: Basics of Python 3
 ### 1.1.3: Modules and Methods
 #### Objects
@@ -181,3 +181,138 @@ L2 is L1            # True
 # Week 2: Python Libraries and Concepts Used in Research
 ## Part 1: Scope Rules and Classes
 ### 2.1.1: Scope Rules
+Scope Rules application acronym:
+*L* ocal
+*E* nclosing Function
+*G* lobal
+*B* uilt-in
+
+```Python
+def update():
+  x.append(1)
+
+x = [1, 1]
+update()
+x # [1, 1, 1]
+```
+This is so called **side effect**, generally you should avoid this style of programming.
+It makes errors difficult to find.
+
+```Python
+def update(n, x):
+  n = 2
+  x.append(4)
+  print('update: ', n, x)
+
+def main():
+  n = 1
+  x = [0, 1, 2, 3]
+  print('main: ', n, x)
+  update(n, x)
+  print('main: ', n, x)
+
+main()
+# main: 1, [1, 2, 3]
+# update: 2, [1, 2, 3, 4]
+# main: 1, [1, 2, 3, 4]
+```
+
+### 2.1.2: Classes and OOP
+Inheritance
+```Python
+class MyList(list):
+  def remove_min(self):
+    self.remove(min(self))
+    def remove_max(self):
+      self.remove(max(self))
+
+x = [10, 3, 5, 1, 2, 7, 6, 4, 8]
+y = MyList(x)
+
+y.remove_min() # y is [10, 3, 5, 2, 7, 6, 4, 8]
+y.remove_max() # y is [3, 5, 2, 7, 6, 4, 8]
+```
+
+### 2.2.1: Introduction to NumPy Arrays
+NumPy arrays used for representing vectors and matrices. In oppose to standard Python arrays they have size that is fixed on creation.
+```Python
+import numpy as np
+zero_vector = np.zeros(5)
+zero_matrix = np.zeros((5,3))
+
+x = np.array([1, 2, 3])
+y = np.array([2, 4, 6])
+Z = np.array([[1, 3, 5], [5, 9, 4]])
+Z.transpose()
+```
+
+### 2.2.2: Slicing NumPy Arrays
+ ```Python
+import numpy as np
+x = np.array([1, 2, 3])
+y = np.array([2, 4, 6])
+X = np.array([[1, 2, 3], [4, 5, 6]])
+X = np.array([[2, 4, 6], [8, 10, 12]])
+
+x[0:2] # array([1, 2])
+z = x + y # z is [3, 6, 9]
+X[:, 1] # array([2, 5])
+X[:, 1] + Y[:, 1] # array([6, 15])
+X[1, :] # array([4, 5, 6])
+X[1, :] + Y[1, :] # array([12, 15, 18])
+X[1] # array([4, 5, 6])
+ ```
+
+### 2.2.3: Indexing NumPy Arrays
+NumPy arrays can also be indexed with other arrays or other sequence-like objects.
+```Python
+import numpy as np
+z1 = np.array([1, 3, 5, 7, 9])
+z2 = z1 + 1 # array([2, 4, 6, 8, 10])
+ind = [0, 2, 3]
+z1[ind] # array([1, 5, 7])
+
+ind = np.array([0, 2, 3])
+z1[ind] # SAME RESULT: array([1, 5, 7])
+
+# Boolean OR logical array can be used:
+z1 > 6 # array([False, False, False, True, True], dtype = bool)
+z1[z1 > 6] # array([7, 9])
+z2[z1 > 6] # array([8, 10])
+```
+When you slice an array using the `colon` operator, you get a **view** of an object.
+If you modify it the original array is also modified. This is in contrast with what happens when you **index** an array,
+in which case what is returned to you is a copy of the original data.
+```python
+import numpy as np
+z1 = np.array([1, 3, 5, 7, 9])
+w = z1[0:3] # w is array([1, 3, 5])
+w[0] = 3    # w is array([3, 3, 5])
+z1          # array([3, 3, 5, 7, 9])
+
+z1 = np.array([1, 3, 5, 7, 9])
+ind = [0, 1, 2]
+w = z1[ind] # array([1 , 3, 5])
+w[0] = 3    # w is array([3, 3, 5])
+z1          # array([1, 3, 5, 7, 9])
+```
+
+### 2.2.4: Building and Examining NumPy Arrays
+```Python
+import numpy as np
+np.linspace(start = 0, stop = 100, num = 10) # array([0., 11,11111111, ..., 88,88888889, 100.])
+np.logspace(start = 1, stop = 2, num = 10) # start = log(10) = 1, stop = log(100) = 2, array consisting of 10 elements where the first element is 10 and the last element is 100.
+
+np.logspace(np.log10(250), np.log10(500), 10) # array([250., ..., 500.]) of 10 elements uniformly spaced in log10 space
+
+X = np.array([[1, 2, 3], [4, 5, 6]])
+X.shape # (2,3)
+X.size # 6
+# shape and size are DATA AATRIBUTES, not methods
+
+x = np.random.random(10) # NumPy has it sown RANDOM Module
+np.any(x > 0.9)   # True
+np.all(x >= 0.1)  # True
+```
+
+### 2.3.1: Introduction to Matplotlib and Pyplot
