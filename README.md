@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # [HarvardX PH526x: Using Python for Research](https://www.edx.org/course/using-python-for-research)
+=======
+[# HarvardX PH526x: Using Python for Research](https://www.edx.org/course/using-python-for-research)
+>>>>>>> 6ca9292fb182abdefa4aff4d7fb105b961ba3823
 ## Week 1: Basics of Python 3
 ### 1.1.3: Modules and Methods
 #### Objects
