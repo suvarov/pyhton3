@@ -233,6 +233,7 @@ y.remove_min() # y is [10, 3, 5, 2, 7, 6, 4, 8]
 y.remove_max() # y is [3, 5, 2, 7, 6, 4, 8]
 ```
 
+## Part 2: NumPy comprehension check
 ### 2.2.1: Introduction to NumPy Arrays
 NumPy arrays used for representing vectors and matrices. In oppose to standard Python arrays they have size that is fixed on creation.
 ```Python
@@ -315,4 +316,86 @@ np.any(x > 0.9)   # True
 np.all(x >= 0.1)  # True
 ```
 
+## Part 3: Matplotlib and Pyplot Comprehension check
 ### 2.3.1: Introduction to Matplotlib and Pyplot
+```Python
+import matplotlib.pyplot as plt
+plt.plot([i**2 for i in range(10)])
+plt.show()
+```
+
+### 2.3.2: Customizing Your Plots
+```Python
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0, 10, 20)
+y1 = x**2
+y2 = x**1.5
+plt.plot(x, y1, 'bo-', linewidth = 2, markersize = 12, label = 'First')
+plt.plot(x, y2, 'gs-', linewidth = 2, markersize = 12, label = 'Second')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.axis(-0.5, 10.5, -5, 105)
+plt.legeng(loc = 'upper left')
+plt.savefig('myPlot.pdf')
+```
+
+### 2.3.3: Plotting using LOG axes
+### 2.3.4: Generating Histograms
+
+## Part 4: Randomness and Time Comprehension check
+### 2.4.1: Simulating Randomness
+```Python
+import numpy as np
+import random
+
+random.choice(['H', 'T'])
+random.choice([0, 1]) # H & T replaced with Numbers
+random.choice([i for i in range(1,7)])
+random.choice(range(1,7))
+
+random.choice(random.choice([range(1,7), range(1,9), range(1,11)]))
+```
+
+### 2.4.2: Examples Involving Randomness
+```Python
+# Draw a histogram of 10000 dice rolls
+rolls = [random.choice(range(1,7)) for i in range(10000)]
+plt.hist(rolls, bins=np.linspace(.5,6.5,7))
+plt.show()
+
+# Draw a histogram of 10000  rolls of 10 dices
+Y = [sum([random.choice(range(1,7)) for i in range(10)]) for j in range(1000000)]
+plt.hist(Y, bins=np.linspace(9.5,60.5,51))
+plt.show()
+```
+
+### 2.4.3: Using the NumPy Random Module
+```Python
+import numpy as np
+np.random.random((5,3)) # returns 5x3 array of random number between 0 and 1
+
+x = np.random.randint(1,7, (100,10))
+y = np.sum(x, axis=1)
+plt.hist(y)
+plt.show()
+```
+
+### 2.4.4: Measuring Time
+```Python
+import time
+start_time = time.clock()
+end_time = time.clock()
+print(end_time - start_time)
+```
+
+### 2.4.5: Random walks
+```Python
+import numpy as np
+import matplotlib.pyplot as plt
+x_0 = np.array([[0], [0]])
+delta_x = np.random.normal(0,1,(2,100))
+x = np.concatenate((x_0, np.cumsum(delta_x, axis = 1)), axis = 1)
+plt.plot(x[0], x[1], "ro-", markersize = 4)
+plt.show()
+```
