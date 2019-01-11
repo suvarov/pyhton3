@@ -399,3 +399,9 @@ x = np.concatenate((x_0, np.cumsum(delta_x, axis = 1)), axis = 1)
 plt.plot(x[0], x[1], "ro-", markersize = 4)
 plt.show()
 ```
+
+## Homework \#2
+
+# Week 3: Case Studies Part 1
+##  Case Study 1: DNA Translation Comprehension Check
+### 3.1.1: Introduction to DNA Translation
