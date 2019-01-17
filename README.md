@@ -463,3 +463,16 @@ def translate(seq):
 
   return protein
 ```
+
+### 3.1.5: Comparing your translation
+```Python
+def read_seq(inputfile):
+  with open(inputfile, 'r') as f:
+    seq = f.read()
+  seq = seq.replace('\n','')
+  seq = seq.replace('\r','')
+  return seq
+```
+
+## Case Study 2: Language Processing
+### 3.2.1: Introduction to Language Processing
