@@ -74,5 +74,3 @@ decoded_message = encoding(encoded_message, key = -3)
 
 # print your decoded message here!
 print(decoded_message)
-
-# Excercise
